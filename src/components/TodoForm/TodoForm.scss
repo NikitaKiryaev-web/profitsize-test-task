@@ -6,11 +6,15 @@
   width: 420px;
   padding: 30px 16px 0 30px;
   height: 540px;
-  background-color: #252E42;
+  background-color: #252e42;
   box-shadow: 0px 14px 34px rgba(0, 0, 0, 0.25);
   border-radius: 20px 0 40px 0;
   position: relative;
   margin-bottom: 30px;
+  z-index: 10;
+  @media (max-width: 500px) {
+    width: 397px;
+  }
   &__title {
     font-family: "Montserrat", Helvetica, sans-serif;
     font-size: 28px;
@@ -21,7 +25,7 @@
   }
   &__form {
     width: 100%;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding-right: 14px;
@@ -46,13 +50,13 @@
     height: 27px;
     border: none;
     border-radius: 7px;
-    background-color: #FF8469;
+    background-color: #ff8469;
     color: #fff;
     padding: 0;
     cursor: pointer;
     &:hover {
-      background-color: #D95133;
-      transition: .3s;
+      background-color: #d95133;
+      transition: 0.3s;
     }
   }
   &__list {
@@ -62,11 +66,12 @@
     width: 100%;
     height: 500px;
     overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-right: 14px;
-
+    margin-bottom: 7px;
 
     &::-webkit-scrollbar {
       width: 4px;
@@ -78,17 +83,55 @@
 
     &::-webkit-scrollbar-thumb {
       border-radius: 10px;
-      background-color: #FF8469;
+      background-color: #ff8469;
     }
   }
   &__overlay {
     width: 100%;
     height: 75px;
-    background: linear-gradient(180deg, rgba(37, 46, 66, 0) 0%, #252E42 67.19%);
+    background: linear-gradient(180deg, rgba(37, 46, 66, 0) 0%, #252e42 67.19%);
     position: absolute;
     bottom: 0;
     left: 0;
     border-radius: 0 0 40px 0;
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+.todo-bg {
+  position: absolute;
+  z-index: 1;
+  top: -25px;
+  width: 395.1px;
+  height: 67.97px;
+  background: linear-gradient(180deg, #31394d 0%, #091739 100%);
+  border-radius: 20px;
+  transform: rotate(-2.32deg);
+  @media (max-width: 500px) {
+    transform: matrix(1, -0.05, 0.03, 1, 0, 0);
+    width: 328.11px;
+    height: 67.95px;
+    top: -15px;
+  }
+}
+
+.todo-bg2 {
+  position: absolute;
+  left: 0;
+  top: -45px;
+  width: 341.86px;
+  height: 85.23px;
+  background: linear-gradient(180deg, #4f5565 0%, #000000 53.65%);
+  border-radius: 20px;
+  transform: rotate(-4.48deg);
+  @media (max-width: 500px) {
+    transform: matrix(1, -0.09, 0.06, 1, 0, 0);
+    width: 284.18px;
+    height: 85.15px;
+    top: -25px;
   }
 }
 
@@ -97,7 +140,7 @@
   font-size: 16px;
   line-height: 20px;
   font-weight: 500;
-  color: #414B62;
+  color: #414b62;
   margin: 0;
   text-align: center;
 }

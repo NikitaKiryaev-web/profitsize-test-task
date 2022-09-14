@@ -1,19 +1,23 @@
 <template>
-  <div class="todo">
-    <form @submit="onSubmitHandle" class="todo__form">
-      <h1 class="todo__title">Todo list</h1>
-      <button type="submit" class="todo__api-btn">Add</button>
-    </form>
-    <ul class="todo__list">
-      <TodoItem
-        v-for="todo in todos"
-        :key="todo.id"
-        :toggle="toggleTodo"
-        :todo="todo"
-        @toggleTodo="toggleTodo(todo)"
-      />
-    </ul>
-    <div class="todo__overlay"></div>
+  <div class="wrapper">
+    <div class="todo-bg"></div>
+    <div class="todo-bg2"></div>
+    <div class="todo">
+      <form @submit="onSubmitHandle" class="todo__form">
+        <h1 class="todo__title">Todo list</h1>
+        <button type="submit" class="todo__api-btn">Add</button>
+      </form>
+      <ul class="todo__list">
+        <TodoItem
+          v-for="todo in todos"
+          :key="todo.id"
+          :toggle="toggleTodo"
+          :todo="todo"
+          @toggleTodo="toggleTodo(todo)"
+        />
+      </ul>
+      <div class="todo__overlay"></div>
+    </div>
   </div>
   <p class="author">© 2022. Kiryaev Nikita</p>
 </template>

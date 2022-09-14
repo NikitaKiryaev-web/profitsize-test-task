@@ -1,4 +1,19 @@
 .todo__list-item {
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Montserrat", Helvetica, sans-serif;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  &_done {
+    text-decoration: line-through;
+    color: #4f5565;
+    &:hover {
+      color: #fff;
+      transition: 0.3s;
+    }
+  }
   &-wrapper {
     width: 100%;
     display: flex;
@@ -6,25 +21,66 @@
     margin-bottom: 20px;
     align-items: center;
     cursor: pointer;
-    
     &:last-of-type {
       margin-bottom: 0;
     }
   }
-  &-delete {
-    width: 100px;
-    height: 50px;
-    border-radius: 10px;
+  &-text {
+    font-family: "Montserrat", Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    color: #4f5565;
+    font-weight: 400;
+    margin: 3px 0 0;
+    width: 325px;
+    white-space: nowrap;
+    text-overflow: clip;
+    position: relative;
+    overflow: hidden;
+    @media (max-width: 500px) {
+      width: 302px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: -63%;
+      right: 25px;
+      width: 12px;
+      height: 34px;
+      transform: rotate(90deg) translateY(-50%);
+      background: linear-gradient(
+        180deg,
+        #252e42 9.38%,
+        rgba(37, 46, 66, 0) 66.15%
+      );
+    }
+  }
+  &-btn {
+    min-width: 20px;
+    height: 20px;
+    background-color: #4f5565;
+    border-radius: 6px;
+    margin-right: 15px;
+    padding: 0;
     border: none;
-    background-color: #3f72af;
-    margin: 0 0 0 30px;
-    color: #fff;
+    cursor: pointer;
+    &.active {
+      background-color: #ff8469;
+      background-image: url(../../assets/images/check.svg);
+      background-size: 12px 9px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   }
-  color: #fff;
-  font-size: 16px;
-  line-height: 20px;
-  font-family: "Montserrat", Helvetica, sans-serif;
-  &_done {
-    text-decoration: line-through;
-  }
+}
+
+.todo__list-item:not(.todo__list-item_done):hover > .todo__list-item-btn {
+  background-color: rgba(255, 132, 105, 0.2);
+  transition: 0.3s;
+}
+
+.todo__list-item:not(.todo__list-item_done):hover
+  > .todo__list-item-text-wrapper {
+  color: #ff8469;
+  transition: 0.3s;
 }
